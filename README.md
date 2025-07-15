@@ -104,7 +104,7 @@ python src/sidecar/cliente.py
 Desde el directorio `src/sidecar` ejecute el siguiente comando.
 
 ```bash
-python -m grpc_tools.protoc -Iprotos --python_out=./pb2py --pyi_out=./pb2py --grpc_python_out=./pb2py protos/vuelos.proto
+python -m grpc_tools.protoc -Iaeroalpes/protos --python_out=./pb2py --pyi_out=./pb2py --grpc_python_out=./pb2py aeroalpes/protos/vuelos.proto
 ```
 
 ### Crear imagen Docker
