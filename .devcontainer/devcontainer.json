@@ -1,0 +1,8 @@
+{
+  "name": "AeroAlpes",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+  },
+  "postCreateCommand": "pip install -r requirements.txt && pip install -r sidecar-requirements.txt && pip install -r ui-requirements.txt"
+}

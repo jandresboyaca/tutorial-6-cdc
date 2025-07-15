@@ -4,6 +4,10 @@ Repositorio con código base para la liberación de datos por medio de eventos c
 
 Este repositorio está basado en el repositorio de sidecars visto en el tutorial 5 del curso. Por tal motivo, puede usar ese mismo repositorio para entender algunos detalles que este README no cubre.
 
+## Dev Containers
+
+El repositorio incluye configuración para [Dev Containers](https://containers.dev/). Si su editor lo soporta solo debe abrir la carpeta y el contenedor se construirá instalando automáticamente todas las dependencias requeridas.
+
 ## Estructura del proyecto
 
 Este repositorio sigue en general la misma estructura del repositorio de origen. Sin embargo, hay un par de adiciones importante mencionar:
@@ -33,16 +37,16 @@ Este comando descarga las imágenes e instala las dependencias de la base datos.
 
 ### Ejecutar Aplicación
 
-Desde el directorio principal ejecute el siguiente comando.
+Desde el directorio principal ejecute el siguiente comando. Si no cuenta con MySQL instalado puede indicar que se use SQLite con la variable `DB_ENGINE`.
 
 ```bash
-flask --app src/aeroalpes/api run
+DB_ENGINE=sqlite flask --app src/aeroalpes/api run
 ```
 
 Siempre puede ejecutarlo en modo DEBUG:
 
 ```bash
-flask --app src/aeroalpes/api --debug run
+DB_ENGINE=sqlite flask --app src/aeroalpes/api --debug run
 ```
 
 ### Ejecutar pruebas
@@ -104,7 +108,7 @@ python src/sidecar/cliente.py
 Desde el directorio `src/sidecar` ejecute el siguiente comando.
 
 ```bash
-python -m grpc_tools.protoc -Iprotos --python_out=./pb2py --pyi_out=./pb2py --grpc_python_out=./pb2py protos/vuelos.proto
+python -m grpc_tools.protoc -Iaeroalpes/protos --python_out=./pb2py --pyi_out=./pb2py --grpc_python_out=./pb2py aeroalpes/protos/vuelos.proto
 ```
 
 ### Crear imagen Docker
