@@ -37,16 +37,16 @@ Este comando descarga las imágenes e instala las dependencias de la base datos.
 
 ### Ejecutar Aplicación
 
-Desde el directorio principal ejecute el siguiente comando. Si no cuenta con MySQL instalado puede indicar que se use SQLite con la variable `DB_ENGINE`.
+Desde el directorio principal ejecute el siguiente comando.
 
 ```bash
-DB_ENGINE=sqlite flask --app src/aeroalpes/api run
+flask --app src/aeroalpes/api run
 ```
 
 Siempre puede ejecutarlo en modo DEBUG:
 
 ```bash
-DB_ENGINE=sqlite flask --app src/aeroalpes/api --debug run
+flask --app src/aeroalpes/api --debug run
 ```
 
 ### Ejecutar pruebas
