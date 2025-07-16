@@ -4,9 +4,9 @@ import os
 
 db = None
 
-DB_USERNAME = os.getenv("DB_USERNAME", default="root")
-DB_PASSWORD = os.getenv("DB_PASSWORD", default="adminadmin")
-DB_HOSTNAME = os.getenv("DB_HOSTNAME", default="localhost")
+DB_USERNAME = os.getenv('DB_USERNAME', default="root")
+DB_PASSWORD = os.getenv('DB_PASSWORD', default="adminadmin")
+DB_HOSTNAME = os.getenv('DB_HOSTNAME', default="localhost")
 
 class DatabaseConfigException(Exception):
     def __init__(self, message='Configuration file is Null or malformed'):
