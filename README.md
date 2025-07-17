@@ -43,10 +43,23 @@ Desde el directorio principal ejecute el siguiente comando.
 flask --app src/aeroalpes/api run
 ```
 
+Si no dispone de una base de datos MySQL puede usar SQLite estableciendo la variable
+de entorno `DB_ENGINE`:
+
+```bash
+DB_ENGINE=sqlite flask --app src/aeroalpes/api run
+```
+
 Siempre puede ejecutarlo en modo DEBUG:
 
 ```bash
 flask --app src/aeroalpes/api --debug run
+```
+
+O usando SQLite:
+
+```bash
+DB_ENGINE=sqlite flask --app src/aeroalpes/api --debug run
 ```
 
 ### Ejecutar pruebas
