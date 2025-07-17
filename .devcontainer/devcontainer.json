@@ -1,8 +1,17 @@
 {
-  "name": "AeroAlpes",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "name": "tutorial-5-cqrs-eventos",
+  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.12",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2.12.2": {
+      "version": "28.3.2"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12.11"
+    }
   },
-  "initializeCommand": "pip install -r requirements.txt && pip install -r sidecar-requirements.txt && pip install -r ui-requirements.txt && docker build . -f aeroalpes.Dockerfile -t aeroalpes/flask && docker build . -f adaptador.Dockerfile -t aeroalpes/adaptador && docker build . -f notificacion.Dockerfile -t aeroalpes/notificacion && docker build . -f ui.Dockerfile -t aeroalpes/ui && mkdir -p data/bookkeeper data/zookeeper data/mysql && sudo chmod -R 777 ./data && sudo chmod -R 777 ./connectors && docker-compose pull"
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "initializeCommand": "mkdir -p data/bookkeeper && mkdir -p data/zookeeper && sudo chmod -R 777 ./data",
+  "runArgs": ["--init", "--privileged"],
+  "forwardPorts": [2181, 8080, 6650],
+  "remoteUser": "vscode"
 }
